@@ -1,0 +1,50 @@
+{
+	"name": "openemr/openemr-ritter",
+	"description": "Ritter",
+	"keywords": ["OpenEMR"],
+	"license": "GPL",
+	"config": {
+        "vendor-dir": "vendor"
+    },
+	"repositories": [
+	    {
+	        "type": "vcs",
+	        "url": "https://stash.mi-squared.com/scm/openemr/openemr-installer.git"
+	    },
+	    {
+	        "type": "vcs",
+	        "url": "https://stash.mi-squared.com/scm/openemr/openemr-ce-base.git"
+	    },
+	    {
+	        "type": "vcs",
+	        "url": "https://stash.mi-squared.com/scm/openemr/utils.git"
+	    },
+	    {
+	        "type": "vcs",
+	        "url": "https://stash.mi-squared.com/scm/openemr/ritter-forms.git"
+	    }
+	],
+	"require": {
+		"openemr/openemr-installer": "dev-master",
+		"openemr/openemr-ce-base": "dev-plugin-framework",
+		"openemr/utils": "dev-master",
+		"openemr/ritter-forms": "dev-master"
+	},
+   	"extra": {
+   		"plugin-dir": "./openemr/interface/modules/custom_modules",
+        "openemr-dir": "./openemr",
+        "openemr-package": "openemr/openemr-ce-base"
+    },
+    "scripts": { 
+    	"post-install-cmd": [ 
+    		"./custom/build.sh",
+    		"./custom/openemr-install.sh kchapple . /Users/kchapple/Dev/www/ritter" 
+    	 ],
+    	 "post-update-cmd": [ 
+    		"./custom/build.sh",
+    		"./custom/openemr-update.sh kchapple . /Users/kchapple/Dev/www/ritter" 
+    	 ]
+    },
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}

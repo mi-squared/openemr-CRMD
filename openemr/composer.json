@@ -1,0 +1,13 @@
+{
+	"name": "openemr/openemr-ce-base",
+	"description": "OpenEMR CE Base",
+	"keywords": ["OpenEMR"],
+	"license": "GPL",
+	"require": {
+		"composer/installers": "~1.0",
+		"openemr/openemr-installer": "dev-master"
+	},
+	"type": "openemr",
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}

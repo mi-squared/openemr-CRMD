@@ -1,0 +1,183 @@
+[
+    {
+        "name": "openemr/openemr-installer",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://stash.mi-squared.com/scm/openemr/openemr-installer.git",
+            "reference": "f0d26a22af8829f2dea588f58b32e747c2d56932"
+        },
+        "time": "2015-02-05 17:49:17",
+        "type": "composer-installer",
+        "extra": {
+            "class": [
+                "OpenemrInstaller\\OpenemrInstaller",
+                "PluginInstaller\\PluginInstaller",
+                "FormInstaller\\FormInstaller"
+            ]
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "OpenemrInstaller\\": "src/OpenemrInstaller/",
+                "PluginInstaller\\": "src/PluginInstaller/",
+                "FormInstaller\\": "src/FormInstaller/"
+            }
+        }
+    },
+    {
+        "name": "composer/installers",
+        "version": "v1.0.20",
+        "version_normalized": "1.0.20.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/installers.git",
+            "reference": "1bff8aa77a18f3616f468ed8000cf86a5725bac3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/installers/zipball/1bff8aa77a18f3616f468ed8000cf86a5725bac3",
+            "reference": "1bff8aa77a18f3616f468ed8000cf86a5725bac3",
+            "shasum": ""
+        },
+        "replace": {
+            "roundcube/plugin-installer": "*",
+            "shama/baton": "*"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpunit/phpunit": "4.1.*"
+        },
+        "time": "2015-01-11 03:51:11",
+        "type": "composer-installer",
+        "extra": {
+            "class": "Composer\\Installers\\Installer",
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Composer\\Installers\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kyle Robinson Young",
+                "email": "kyle@dontkry.com",
+                "homepage": "https://github.com/shama"
+            }
+        ],
+        "description": "A multi-framework Composer library installer",
+        "homepage": "http://composer.github.com/installers/",
+        "keywords": [
+            "Craft",
+            "Dolibarr",
+            "Hurad",
+            "MODX Evo",
+            "OXID",
+            "SMF",
+            "Thelia",
+            "WolfCMS",
+            "agl",
+            "annotatecms",
+            "bitrix",
+            "cakephp",
+            "chef",
+            "codeigniter",
+            "concrete5",
+            "croogo",
+            "dokuwiki",
+            "drupal",
+            "elgg",
+            "fuelphp",
+            "grav",
+            "installer",
+            "joomla",
+            "kohana",
+            "laravel",
+            "lithium",
+            "magento",
+            "mako",
+            "mediawiki",
+            "modulework",
+            "moodle",
+            "phpbb",
+            "piwik",
+            "ppi",
+            "puppet",
+            "roundcube",
+            "shopware",
+            "silverstripe",
+            "symfony",
+            "typo3",
+            "wordpress",
+            "zend",
+            "zikula"
+        ]
+    },
+    {
+        "name": "openemr/openemr-ce-base",
+        "version": "dev-plugin-framework",
+        "version_normalized": "dev-plugin-framework",
+        "source": {
+            "type": "git",
+            "url": "https://stash.mi-squared.com/scm/openemr/openemr-ce-base.git",
+            "reference": "db711be4126251ac37b38ca409486d116d6bebb6"
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "openemr/openemr-installer": "dev-master"
+        },
+        "time": "2015-02-15 19:13:57",
+        "type": "openemr",
+        "installation-source": "source",
+        "license": [
+            "GPL"
+        ],
+        "description": "OpenEMR CE Base",
+        "keywords": [
+            "OpenEMR"
+        ]
+    },
+    {
+        "name": "openemr/utils",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://stash.mi-squared.com/scm/openemr/utils.git",
+            "reference": "79289a9d58ab1309e9fa9ff0c361df268bce8637"
+        },
+        "time": "2015-02-03 19:43:59",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "UserGroup\\": "src/UserGroup/",
+                "Globals\\": "src/Globals/",
+                "Migration\\": "src/Migration/",
+                "Plugin\\": "src/Plugin/"
+            }
+        }
+    },
+    {
+        "name": "openemr/ritter-forms",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://stash.mi-squared.com/scm/openemr/ritter-forms.git",
+            "reference": "f190c9e823bd9796ed2b7a1d70571a498ce4e9a7"
+        },
+        "time": "2015-02-05 21:26:04",
+        "type": "library",
+        "installation-source": "source"
+    }
+]

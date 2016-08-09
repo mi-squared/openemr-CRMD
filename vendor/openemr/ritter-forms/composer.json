@@ -1,0 +1,5 @@
+{
+    "name": "openemr/ritter-forms",
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}

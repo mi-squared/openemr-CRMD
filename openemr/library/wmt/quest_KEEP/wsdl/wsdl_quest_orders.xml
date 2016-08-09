@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions  xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://medplus.com/orders"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+  targetNamespace="http://medplus.com/orders">
+ <types   xmlns="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+   xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/"
+   xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+   xmlns:s="http://www.w3.org/2001/XMLSchema"
+   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+   xmlns:tns="http://medplus.com/orders"
+   xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+   xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <xsd:schema    xmlns:stns="java:com.medplus.serviceHub.framework.webservices"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:com.medplus.serviceHub.framework.webservices"
+    elementFormDefault="qualified">
+   <xsd:import     namespace="http://schemas.xmlsoap.org/soap/encoding/">
+   </xsd:import>
+   <xsd:complexType     name="ArrayOfResponseProperty">
+    <xsd:complexContent>
+     <xsd:restriction       xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+       base="soapenc:Array">
+      <xsd:attribute        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        ref="soapenc:arrayType"
+        wsdl:arrayType="stns:ResponseProperty[]">
+      </xsd:attribute>
+     </xsd:restriction>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="BaseHubServiceResponse">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="responseCode"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="responseMsg"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="responseProperties"
+       type="stns:ArrayOfResponseProperty"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="status"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="ResponseProperty">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="propertyName"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="propertyValue"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:com.medplus.serviceHub.orders.support"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:com.medplus.serviceHub.orders.support"
+    elementFormDefault="qualified">
+   <xsd:import     namespace="http://schemas.xmlsoap.org/soap/encoding/">
+   </xsd:import>
+   <xsd:complexType     name="ArrayOfOrderSupportDocument">
+    <xsd:complexContent>
+     <xsd:restriction       xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+       base="soapenc:Array">
+      <xsd:attribute        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        ref="soapenc:arrayType"
+        wsdl:arrayType="stns:OrderSupportDocument[]">
+      </xsd:attribute>
+     </xsd:restriction>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="OrderSupportDocument">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="documentData"
+       type="xsd:base64Binary"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="documentType"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="requestStatus"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="responseMessage"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       name="success"
+       type="xsd:boolean"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:com.medplus.serviceHub.orders.webservice"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:com.medplus.serviceHub.orders.webservice"
+    elementFormDefault="qualified">
+   <xsd:import     namespace="java:language_builtins.lang">
+   </xsd:import>
+   <xsd:import     namespace="java:com.medplus.serviceHub.framework.webservices">
+   </xsd:import>
+   <xsd:import     namespace="java:com.medplus.serviceHub.orders.support">
+   </xsd:import>
+   <xsd:complexType     name="Order">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="hl7Order"
+       type="xsd:base64Binary"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="OrderResponse">
+    <xsd:complexContent>
+     <xsd:extension       xmlns:tp="java:com.medplus.serviceHub.framework.webservices"
+       base="tp:BaseHubServiceResponse">
+      <xsd:sequence>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="messageControlId"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         maxOccurs="1"
+         nillable="true"
+         name="orderTransactionUid"
+         type="xsd:string"
+         minOccurs="1">
+       </xsd:element>
+       <xsd:element         xmlns:tp="java:language_builtins.lang"
+         maxOccurs="1"
+         nillable="true"
+         name="validationErrors"
+         type="tp:ArrayOfString"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="OrderSupportServiceRequest">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:Order">
+      <xsd:sequence>
+       <xsd:element         xmlns:tp="java:language_builtins.lang"
+         maxOccurs="1"
+         nillable="true"
+         name="orderSupportRequests"
+         type="tp:ArrayOfString"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="OrderSupportServiceResponse">
+    <xsd:complexContent>
+     <xsd:extension       base="stns:OrderResponse">
+      <xsd:sequence>
+       <xsd:element         xmlns:tp="java:com.medplus.serviceHub.orders.support"
+         maxOccurs="1"
+         nillable="true"
+         name="orderSupportDocuments"
+         type="tp:ArrayOfOrderSupportDocument"
+         minOccurs="1">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:javax.xml.rpc"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:javax.xml.rpc"
+    elementFormDefault="qualified">
+   <xsd:element     name="ServiceException"
+     type="stns:ServiceException">
+   </xsd:element>
+   <xsd:complexType     name="ServiceException">
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:javax.xml.soap"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:javax.xml.soap"
+    elementFormDefault="qualified">
+   <xsd:element     name="SOAPException"
+     type="stns:SOAPException">
+   </xsd:element>
+   <xsd:complexType     name="SOAPException">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="message"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:language_builtins.lang"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:language_builtins.lang"
+    elementFormDefault="qualified">
+   <xsd:import     namespace="http://schemas.xmlsoap.org/soap/encoding/">
+   </xsd:import>
+   <xsd:complexType     name="ArrayOfString">
+    <xsd:complexContent>
+     <xsd:restriction       xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+       base="soapenc:Array">
+      <xsd:attribute        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        ref="soapenc:arrayType"
+        wsdl:arrayType="xsd:string[]">
+      </xsd:attribute>
+     </xsd:restriction>
+    </xsd:complexContent>
+   </xsd:complexType>
+  </xsd:schema>
+ </types>
+ <message   name="submitOrder">
+  <part    xmlns:partns="java:com.medplus.serviceHub.orders.webservice"
+    name="order"
+    type="partns:Order">
+  </part>
+ </message>
+ <message   name="submitOrderResponse">
+  <part    xmlns:partns="java:com.medplus.serviceHub.orders.webservice"
+    name="result"
+    type="partns:OrderResponse">
+  </part>
+ </message>
+ <message   name="validateOrder">
+  <part    xmlns:partns="java:com.medplus.serviceHub.orders.webservice"
+    name="order"
+    type="partns:Order">
+  </part>
+ </message>
+ <message   name="validateOrderResponse">
+  <part    xmlns:partns="java:com.medplus.serviceHub.orders.webservice"
+    name="result"
+    type="partns:OrderResponse">
+  </part>
+ </message>
+ <message   name="getOrderDocuments">
+  <part    xmlns:partns="java:com.medplus.serviceHub.orders.webservice"
+    name="request"
+    type="partns:OrderSupportServiceRequest">
+  </part>
+ </message>
+ <message   name="getOrderDocumentsResponse">
+  <part    xmlns:partns="java:com.medplus.serviceHub.orders.webservice"
+    name="result"
+    type="partns:OrderSupportServiceResponse">
+  </part>
+ </message>
+ <portType   name="OrderServicePort">
+  <operation    name="submitOrder">
+   <input     message="tns:submitOrder">
+   </input>
+   <output     message="tns:submitOrderResponse">
+   </output>
+  </operation>
+  <operation    name="validateOrder">
+   <input     message="tns:validateOrder">
+   </input>
+   <output     message="tns:validateOrderResponse">
+   </output>
+  </operation>
+  <operation    name="getOrderDocuments">
+   <input     message="tns:getOrderDocuments">
+   </input>
+   <output     message="tns:getOrderDocumentsResponse">
+   </output>
+  </operation>
+ </portType>
+ <binding   name="OrderServicePort"
+   type="tns:OrderServicePort">
+   <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+  <operation    name="submitOrder">
+    <soap:operation style="rpc" soapAction="" />
+   <input>
+     <soap:body use="encoded" namespace="http://medplus.com/orders" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </input>
+   <output>
+     <soap:body use="encoded" namespace="http://medplus.com/orders" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </output>
+  </operation>
+  <operation    name="validateOrder">
+    <soap:operation style="rpc" soapAction="" />
+   <input>
+     <soap:body use="encoded" namespace="http://medplus.com/orders" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </input>
+   <output>
+     <soap:body use="encoded" namespace="http://medplus.com/orders" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </output>
+  </operation>
+  <operation    name="getOrderDocuments">
+    <soap:operation style="rpc" soapAction="" />
+   <input>
+     <soap:body use="encoded" namespace="http://medplus.com/orders" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </input>
+   <output>
+     <soap:body use="encoded" namespace="http://medplus.com/orders" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </output>
+  </operation>
+ </binding>
+ <service   name="OrderService">
+  <port    name="OrderServicePort"
+    binding="tns:OrderServicePort">
+    <soap:address location="https://cert.hub.care360.com:443/orders/service" />
+  </port>
+ </service>
+</definitions>

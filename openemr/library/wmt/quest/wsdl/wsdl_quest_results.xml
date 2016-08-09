@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions  xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://medplus.com/observation"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+  targetNamespace="http://medplus.com/observation">
+ <types   xmlns="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+   xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/"
+   xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+   xmlns:s="http://www.w3.org/2001/XMLSchema"
+   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+   xmlns:tns="http://medplus.com/observation"
+   xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+   xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <xsd:schema    xmlns:stns="java:com.medplus.serviceHub.results.webservice.observation"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:com.medplus.serviceHub.results.webservice.observation"
+    elementFormDefault="qualified">
+   <xsd:import     namespace="http://schemas.xmlsoap.org/soap/encoding/">
+   </xsd:import>
+   <xsd:import     namespace="java:language_builtins.lang">
+   </xsd:import>
+   <xsd:complexType     name="AcknowledgedResult">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="ackCode"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       xmlns:tp="java:language_builtins.lang"
+       maxOccurs="1"
+       nillable="true"
+       name="documentIds"
+       type="tp:ArrayOfString"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="rejectionReason"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="resultId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="Acknowledgment">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="acknowledgedResults"
+       type="stns:ArrayOfAcknowledgedResult"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="requestId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="ArrayOfAcknowledgedResult">
+    <xsd:complexContent>
+     <xsd:restriction       xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+       base="soapenc:Array">
+      <xsd:attribute        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        ref="soapenc:arrayType"
+        wsdl:arrayType="stns:AcknowledgedResult[]">
+      </xsd:attribute>
+     </xsd:restriction>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="ArrayOfObservationResult">
+    <xsd:complexContent>
+     <xsd:restriction       xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+       base="soapenc:Array">
+      <xsd:attribute        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        ref="soapenc:arrayType"
+        wsdl:arrayType="stns:ObservationResult[]">
+      </xsd:attribute>
+     </xsd:restriction>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="ArrayOfObservationResultDocument">
+    <xsd:complexContent>
+     <xsd:restriction       xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+       base="soapenc:Array">
+      <xsd:attribute        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        ref="soapenc:arrayType"
+        wsdl:arrayType="stns:ObservationResultDocument[]">
+      </xsd:attribute>
+     </xsd:restriction>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="ArrayOfProviderAccount">
+    <xsd:complexContent>
+     <xsd:restriction       xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+       base="soapenc:Array">
+      <xsd:attribute        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        ref="soapenc:arrayType"
+        wsdl:arrayType="stns:ProviderAccount[]">
+      </xsd:attribute>
+     </xsd:restriction>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType     name="ObservationResult">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="HL7Message"
+       type="xsd:base64Binary"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="documents"
+       type="stns:ArrayOfObservationResultDocument"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="observationResultType"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="resultId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="ObservationResultDocument">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="documentData"
+       type="xsd:base64Binary"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="documentId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="fileMimeType"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="fileName"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="ObservationResultRequest">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="endDate"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="maxMessages"
+       type="xsd:int"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="providerAccounts"
+       type="stns:ArrayOfProviderAccount"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       name="retrieveFinalsOnly"
+       type="xsd:boolean"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="startDate"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="ObservationResultResponse">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="isMore"
+       type="xsd:boolean"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="observationResults"
+       type="stns:ArrayOfObservationResult"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="requestId"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType     name="ProviderAccount">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="providerAccountName"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="providerName"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:javax.xml.rpc"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:javax.xml.rpc"
+    elementFormDefault="qualified">
+   <xsd:element     name="ServiceException"
+     type="stns:ServiceException">
+   </xsd:element>
+   <xsd:complexType     name="ServiceException">
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:javax.xml.soap"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:javax.xml.soap"
+    elementFormDefault="qualified">
+   <xsd:element     name="SOAPException"
+     type="stns:SOAPException">
+   </xsd:element>
+   <xsd:complexType     name="SOAPException">
+    <xsd:sequence>
+     <xsd:element       maxOccurs="1"
+       nillable="true"
+       name="message"
+       type="xsd:string"
+       minOccurs="1">
+     </xsd:element>
+    </xsd:sequence>
+   </xsd:complexType>
+  </xsd:schema>
+  <xsd:schema    xmlns:stns="java:language_builtins.lang"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    targetNamespace="java:language_builtins.lang"
+    elementFormDefault="qualified">
+   <xsd:import     namespace="http://schemas.xmlsoap.org/soap/encoding/">
+   </xsd:import>
+   <xsd:complexType     name="ArrayOfString">
+    <xsd:complexContent>
+     <xsd:restriction       xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+       base="soapenc:Array">
+      <xsd:attribute        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        ref="soapenc:arrayType"
+        wsdl:arrayType="xsd:string[]">
+      </xsd:attribute>
+     </xsd:restriction>
+    </xsd:complexContent>
+   </xsd:complexType>
+  </xsd:schema>
+ </types>
+ <message   name="getResults">
+  <part    xmlns:partns="java:com.medplus.serviceHub.results.webservice.observation"
+    name="resultRequest"
+    type="partns:ObservationResultRequest">
+  </part>
+ </message>
+ <message   name="getResultsResponse">
+  <part    xmlns:partns="java:com.medplus.serviceHub.results.webservice.observation"
+    name="result"
+    type="partns:ObservationResultResponse">
+  </part>
+ </message>
+ <message   name="getMoreResults">
+  <part    xmlns:partns="http://www.w3.org/2001/XMLSchema"
+    name="requestId"
+    type="partns:string">
+  </part>
+ </message>
+ <message   name="getMoreResultsResponse">
+  <part    xmlns:partns="java:com.medplus.serviceHub.results.webservice.observation"
+    name="result"
+    type="partns:ObservationResultResponse">
+  </part>
+ </message>
+ <message   name="acknowledgeResults">
+  <part    xmlns:partns="java:com.medplus.serviceHub.results.webservice.observation"
+    name="ack"
+    type="partns:Acknowledgment">
+  </part>
+ </message>
+ <message   name="acknowledgeResultsResponse">
+ </message>
+ <message   name="getProviderAccounts">
+ </message>
+ <message   name="getProviderAccountsResponse">
+  <part    xmlns:partns="java:com.medplus.serviceHub.results.webservice.observation"
+    name="result"
+    type="partns:ArrayOfProviderAccount">
+  </part>
+ </message>
+ <portType   name="ObservationResultServicePort">
+  <operation    name="getResults">
+   <input     message="tns:getResults">
+   </input>
+   <output     message="tns:getResultsResponse">
+   </output>
+  </operation>
+  <operation    name="getMoreResults">
+   <input     message="tns:getMoreResults">
+   </input>
+   <output     message="tns:getMoreResultsResponse">
+   </output>
+  </operation>
+  <operation    name="acknowledgeResults">
+   <input     message="tns:acknowledgeResults">
+   </input>
+   <output     message="tns:acknowledgeResultsResponse">
+   </output>
+  </operation>
+  <operation    name="getProviderAccounts">
+   <input     message="tns:getProviderAccounts">
+   </input>
+   <output     message="tns:getProviderAccountsResponse">
+   </output>
+  </operation>
+ </portType>
+ <binding   name="ObservationResultServicePort"
+   type="tns:ObservationResultServicePort">
+   <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+  <operation    name="getResults">
+    <soap:operation style="rpc" soapAction="" />
+   <input>
+     <soap:body use="encoded" namespace="http://medplus.com/observation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </input>
+   <output>
+     <soap:body use="encoded" namespace="http://medplus.com/observation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </output>
+  </operation>
+  <operation    name="getMoreResults">
+    <soap:operation style="rpc" soapAction="" />
+   <input>
+     <soap:body use="encoded" namespace="http://medplus.com/observation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </input>
+   <output>
+     <soap:body use="encoded" namespace="http://medplus.com/observation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </output>
+  </operation>
+  <operation    name="acknowledgeResults">
+    <soap:operation style="rpc" soapAction="" />
+   <input>
+     <soap:body use="encoded" namespace="http://medplus.com/observation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </input>
+   <output>
+     <soap:body use="encoded" namespace="http://medplus.com/observation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </output>
+  </operation>
+  <operation    name="getProviderAccounts">
+    <soap:operation style="rpc" soapAction="" />
+   <input>
+     <soap:body use="encoded" namespace="http://medplus.com/observation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </input>
+   <output>
+     <soap:body use="encoded" namespace="http://medplus.com/observation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+   </output>
+  </operation>
+ </binding>
+ <service   name="ObservationResultService">
+  <port    name="ObservationResultServicePort"
+    binding="tns:ObservationResultServicePort">
+    <soap:address location="https://cert.hub.care360.com:443/observation/result/service" />
+  </port>
+ </service>
+</definitions>

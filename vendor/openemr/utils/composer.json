@@ -1,0 +1,12 @@
+{
+    "name": "openemr/utils",
+    "version": "1.0",
+    "autoload": {
+        "psr-4": {
+        	"UserGroup\\": "src/UserGroup/",
+        	"Globals\\": "src/Globals/",
+        	"Migration\\": "src/Migration/",
+        	"Plugin\\": "src/Plugin/"
+        }
+    }
+}

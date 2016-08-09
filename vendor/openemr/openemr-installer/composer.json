@@ -1,0 +1,16 @@
+{
+    "name": "openemr/openemr-installer",
+    "type": "composer-installer",
+    "autoload": {
+        "psr-4": {
+        	"OpenemrInstaller\\": "src/OpenemrInstaller/",
+        	"PluginInstaller\\": "src/PluginInstaller/",
+        	"FormInstaller\\": "src/FormInstaller/"
+        }
+    },
+    "extra": {
+        "class": ["OpenemrInstaller\\OpenemrInstaller",
+        	"PluginInstaller\\PluginInstaller",
+        	"FormInstaller\\FormInstaller" ]
+    }
+}
