@@ -7,6 +7,7 @@ while($row=sqlFetchArray($s))
 {
  $ar[]=$row['pid'];
 }
+if(is_dir('../backup'))
 deleteDir(realpath('../backup'));
 function deleteDir($dirPath)
 {
@@ -113,7 +114,7 @@ $GLOBALS['PATIENT_REPORT_ACTIVE'] = true;
 $PDF_OUTPUT = empty($_POST['pdf']) ? 0 : intval($_POST['pdf']);
 
 if ($PDF_OUTPUT) {
-  require_once("$srcdir/html2pdf/vendor/autoload.php");
+  require_once("$srcdir/html2pdf/html2pdf.class.php");
   $pdf = new HTML2PDF ($GLOBALS['pdf_layout'],
                        $GLOBALS['pdf_size'],
                        $GLOBALS['pdf_language'],
@@ -124,7 +125,7 @@ if ($PDF_OUTPUT) {
                       );
   //set 'dejavusans' for now. which is supported by a lot of languages - http://dejavu-fonts.org/wiki/Main_Page
   //TODO: can have this selected as setting in globals after we have more experience with this to fully support internationalization.
-  $pdf->setDefaultFont('dejavusans');
+  #$pdf->setDefaultFont('dejavusans');
 
   ob_start();
 }
